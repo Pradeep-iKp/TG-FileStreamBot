@@ -77,7 +77,7 @@ async def private_receive_handler(c: Client, m: Message):
             return
     try:
         log_msg = await m.forward(chat_id=Var.BIN_CHANNEL)
-        stream_link = Var.URL + str(log_msg.message_id) + '/' +quote_plus(file_name) if file_name else ''
+        stream_link = Var.URL + str(log_msg.message_id) + '/' +quote_plus(file_name) 
         online_link = Var.URL + 'download/'+ str(log_msg.message_id) 
         shortlinka = get_shortlink(online_link)
         if shortlinka:
@@ -130,7 +130,7 @@ async def channel_receive_handler(bot, broadcast):
         return
     try:
         log_msg = await broadcast.forward(chat_id=Var.BIN_CHANNEL)
-        stream_link = Var.URL + str(log_msg.message_id) + '/' +quote_plus(file_name) if file_name else ''
+        stream_link = Var.URL + str(log_msg.message_id) + '/' +quote_plus(file_name)
         online_link = Var.URL + 'download/' + str(log_msg.message_id) 
         await log_msg.reply_text(
             text=f"**Cʜᴀɴɴᴇʟ Nᴀᴍᴇ:** `{broadcast.chat.title}`\n**Cʜᴀɴɴᴇʟ ID:** `{broadcast.chat.id}`\n**Rᴇǫᴜᴇsᴛ ᴜʀʟ:** {stream_link}",
