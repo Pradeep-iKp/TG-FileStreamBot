@@ -12,7 +12,6 @@ from WebStreamer.bot import StreamBot
 from pyrogram.errors import FloodWait, UserNotParticipant
 from pyrogram.types.messages_and_media import message
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
-from pyshorteners import Shortener
 db = Database(Var.DATABASE_URL, Var.SESSION_NAME)
 
 def detect_type(m: Message):
@@ -24,16 +23,21 @@ def detect_type(m: Message):
         return m.audio
     else:
         return
-    
+   
 
-def get_shortlink(url):
-  shortlink = False 
-  try:
-     shortlink = Shortener().bit.ly.short(url)
-  except Exception as err:
-      print(err)
-      pass
-  return shortlink  
+@StreamBot.on_message(filters.private & (filters.document | filters.video | filters.audio), group=4)
+async def media_receive_handler(_, m: Message):
+    file = detect_type(m)
+    file_name = ''
+    if file:
+        file_name = file.file_name
+    log_msg = await m.forward(chat_id=Var.BIN_CHANNEL)
+    stream_link = Var.URL + str(log_msg.message_id) + '/' +quote_plus(file_name) if file_name else ''
+    await m.reply_text(
+        text="{}".format(stream_link),
+        quote=True,
+        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('Open', url=stream_link)]])
+    )
     
 @StreamBot.on_message(filters.private & (filters.document | filters.video | filters.audio) & ~filters.edited, group=4)
 async def private_receive_handler(c: Client, m: Message):
@@ -99,14 +103,6 @@ async def private_receive_handler(c: Client, m: Message):
         elif m.audio:
             file_name = f"{m.audio.file_name}"
 
-        msg_text ="""
-<i><u>𝗬𝗼𝘂𝗿 𝗟𝗶𝗻𝗸 𝗚𝗲𝗻𝗲𝗿𝗮𝘁𝗲𝗱 !</u></i>
-<b>📂 Fɪʟᴇ ɴᴀᴍᴇ :</b> <i>{}</i>
-<b>📦 Fɪʟᴇ ꜱɪᴢᴇ :</b> <i>{}</i>
-<b>📥 Dᴏᴡɴʟᴏᴀᴅ :</b> <i>{}</i>
-<b>📥 Watch :</b> <i>{}</i>
-<b>🚸 Nᴏᴛᴇ : LINK WON'T EXPIRE  </b>
-<i>© @AdarshGoelo5 </i>"""
 
         await log_msg.reply_text(text=f"**RᴇQᴜᴇꜱᴛᴇᴅ ʙʏ :** [{m.from_user.first_name}](tg://user?id={m.from_user.id})\n**Uꜱᴇʀ ɪᴅ :** `{m.from_user.id}`\n**Dᴏᴡɴʟᴏᴀᴅ ʟɪɴᴋ :** {stream_link}", disable_web_page_preview=True, parse_mode="Markdown", quote=True)
         await m.reply_text(
@@ -114,9 +110,7 @@ async def private_receive_handler(c: Client, m: Message):
             parse_mode="HTML", 
             quote=True,
             disable_web_page_preview=True,
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🖥STREAM", url=stream_link), #Stream Link
-                                                InlineKeyboardButton('Dᴏᴡɴʟᴏᴀᴅ📥', url=online_link)]]) #Download Link
-        )
+            
     except FloodWait as e:
         print(f"Sleeping for {str(e.x)}s")
         await asyncio.sleep(e.x)
@@ -130,8 +124,6 @@ async def channel_receive_handler(bot, broadcast):
         return
     try:
         log_msg = await broadcast.forward(chat_id=Var.BIN_CHANNEL)
-        stream_link = Var.URL + str(log_msg.message_id) + '/' +quote_plus(file_name)
-        online_link = Var.URL + 'download/' + str(log_msg.message_id) 
         await log_msg.reply_text(
             text=f"**Cʜᴀɴɴᴇʟ Nᴀᴍᴇ:** `{broadcast.chat.title}`\n**Cʜᴀɴɴᴇʟ ID:** `{broadcast.chat.id}`\n**Rᴇǫᴜᴇsᴛ ᴜʀʟ:** {stream_link}",
             quote=True,
@@ -140,13 +132,7 @@ async def channel_receive_handler(bot, broadcast):
         await bot.edit_message_reply_markup(
             chat_id=broadcast.chat.id,
             message_id=broadcast.message_id,
-            reply_markup=InlineKeyboardMarkup(
-                [
-                    [InlineKeyboardButton("🖥STREAM ", url=stream_link),
-                     InlineKeyboardButton('Dᴏᴡɴʟᴏᴀᴅ📥', url=online_link)] 
-                ]
-            )
-        )
+            
     except FloodWait as w:
         print(f"Sleeping for {str(w.x)}s")
         await asyncio.sleep(w.x)
