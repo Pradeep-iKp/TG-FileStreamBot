@@ -10,16 +10,19 @@ class Var(object):
     API_ID = int(getenv('API_ID'))
     API_HASH = str(getenv('API_HASH'))
     BOT_TOKEN = str(getenv('BOT_TOKEN'))
+    SESSION_NAME = str(getenv('SESSION_NAME', 'F2LxBot'))
     SLEEP_THRESHOLD = int(getenv('SLEEP_THRESHOLD', '60'))
     WORKERS = int(getenv('WORKERS', '3'))
     BIN_CHANNEL = int(getenv('BIN_CHANNEL', None))     
     PORT = int(getenv('PORT', 8080))
     BIND_ADRESS = str(getenv('WEB_SERVER_BIND_ADDRESS', '0.0.0.0'))
+    OWNER_ID = int(getenv('OWNER_ID', '648705558'))
     HAS_SSL = getenv('HAS_SSL', False)
     HAS_SSL = True if HAS_SSL.lower() == 'true' else False
     # OWNER_ID = int(getenv('OWNER_ID')) #TODO
     NO_PORT = getenv('NO_PORT', False)
     NO_PORT = True if NO_PORT.lower() == 'true' else False
+    OWNER_USERNAME = str(getenv('OWNER_USERNAME'))
     if 'DYNO' in environ:
         ON_HEROKU = True
         APP_NAME = str(getenv('APP_NAME'))
@@ -30,3 +33,6 @@ class Var(object):
         URL = f"https://{FQDN}/"     
     else:
         URL = "http{}://{}{}/".format('s' if HAS_SSL else '', FQDN, '' if NO_PORT else ':'+ str(PORT))
+    DATABASE_URL = str(getenv('DATABASE_URL'))
+    UPDATES_CHANNEL = str(getenv('UPDATES_CHANNEL', None))
+    BANNED_CHANNELS = list(set(int(x) for x in str(getenv("BANNED_CHANNELS", "-1001362659779")).split()))   
