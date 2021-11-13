@@ -7,4 +7,3 @@ motor
 aiofiles
 dnspython
 requests
-pyshorteners
