@@ -11,7 +11,7 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
 from pyrogram.errors import UserNotParticipant
 db = Database(Var.DATABASE_URL, Var.SESSION_NAME)
 
-@StreamBot.on_message(filters.command(['start', 'help']))
+@StreamBot.on_message(filters.command(['rate']))
 async def start(_, m: Message):
     await m.reply(f'Hi {m.from_user.mention(style="md")}, Send me a file to get an instant stream link.',
                   reply_markup=InlineKeyboardMarkup(
