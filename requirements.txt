@@ -3,3 +3,8 @@ apscheduler
 pyrogram
 python-dotenv
 tgcrypto
+motor
+aiofiles
+dnspython
+requests
+pyshorteners
