@@ -20,7 +20,7 @@ broadcast_ids = {}
 @StreamBot.on_message(filters.command("status") & filters.private & filters.user(Var.OWNER_ID) & ~filters.edited)
 async def sts(c: Client, m: Message):
     total_users = await db.total_users_count()
-    await m.reply_text(text=f"**Total Users in DB:** `{total_users}`", parse_mode="Markdown", quote=True)
+    await m.reply_text(text=f"**👥 Total Users in DB :** `{total_users}`", parse_mode="Markdown", quote=True)
 
 
 @StreamBot.on_message(filters.command("broadcast") & filters.private & filters.user(Var.OWNER_ID) & filters.reply & ~filters.edited)
@@ -77,13 +77,13 @@ async def broadcast_(c, m):
     await out.delete()
     if failed == 0:
         await m.reply_text(
-            text=f"broadcast completed in `{completed_in}`\n\nTotal users {total_users}.\nTotal done {done}, {success} success and {failed} failed.",
+            text=f"🌐 Broadcast completed in `{completed_in}`\n\n 👥 Total users : {total_users}.\n🔰 Total done : {done},\n✅ Success : {success}\n ❕Failed : {failed}.",
             quote=True
         )
     else:
         await m.reply_document(
             document='broadcast.txt',
-            caption=f"broadcast completed in `{completed_in}`\n\nTotal users {total_users}.\nTotal done {done}, {success} success and {failed} failed.",
+            caption=f"🌐 Broadcast completed in `{completed_in}`\n\n 👥 Total users : {total_users}.\n🔰 Total done : {done},\n✅ Success : {success}\n ❕Failed : {failed}.",
             quote=True
         )
     os.remove('broadcast.txt')
