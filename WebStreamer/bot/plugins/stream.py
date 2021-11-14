@@ -64,7 +64,6 @@ async def private_receive_handler(c: Client, m: Message):
             return
     try:
         file = detect_type(m)
-    if file:
         file_name = file.file_name
         log_msg = await m.forward(chat_id=Var.BIN_CHANNEL)
         stream_link = Var.URL + str(log_msg.message_id) + '/' +quote_plus(file_name) if file_name else 
@@ -116,7 +115,6 @@ async def channel_receive_handler(bot, broadcast):
         return
     try:
         file = detect_type(m)
-    if file:
         file_name = file.file_name
         log_msg = await broadcast.forward(chat_id=Var.BIN_CHANNEL)
         stream_link = Var.URL + str(log_msg.message_id) + '/' +quote_plus(file_name) if file_name else 
