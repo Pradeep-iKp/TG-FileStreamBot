@@ -15,8 +15,8 @@
     ],
   "repository": "https://github.com/Pradeep-iKp/TG-FileStreamBot",
   "success_url": "/",
-  "logo": "https://i.ibb.co/MnMZ1Sy/download-1.jpg",
-  "website": "https://github.com/Pradeep-iKp/TG-FileStreamBot",
+  "logo": "https://telegra.ph/file/7ac87c05b8d860923b4f2.jpg",
+  "website": "https://github.com/Pradeep-iKp",
   "env": {
       "ENV": {
           "description": "Set this to True if you don't want to crash the bot",
@@ -89,7 +89,7 @@
           "required": false
       },
       "SESSION_NAME": {
-          "description": " Session Name for Bot [ Add Code-X-Mania]",
+          "description": " Session Name for Bot [ Add Tg-FileStreamBot ]",
           "value": "Code-X-Mania",
           "required": false
       }
