@@ -64,7 +64,7 @@ async def private_receive_handler(c: Client, m: Message):
             return
     try:
         file = detect_type(m)
-    file_name = ''
+    file_name = "
     if file:
         file_name = file.file_name
         log_msg = await m.forward(chat_id=Var.BIN_CHANNEL)
