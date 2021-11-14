@@ -68,10 +68,10 @@ async def private_receive_handler(c: Client, m: Message):
     if file:
         file_name = file.file_name
         log_msg = await m.forward(chat_id=Var.BIN_CHANNEL)
-        stream_link = "https://{}/{}".format(Var.FQDN, log_msg.message_id) + '/' +quote_plus(file_name) if Var.ON_HEROKU or Var.NO_PORT else \
-            "http://{}:{}/{}".format(Var.FQDN,
-                                    Var.PORT,
-                                    log_msg.message_id) + '/' +quote_plus(file_name)
+        stream_link = Var.URL + str(log_msg.message_id) + '/' +quote_plus(file_name) if file_name else "
+            
+                                   
+     
         file_size = None
         if m.video:
             file_size = f"{humanbytes(m.video.file_size)}"
@@ -117,14 +117,14 @@ async def channel_receive_handler(bot, broadcast):
         return
     try:
         file = detect_type(m)
-    file_name = ''
+    file_name = "
     if file:
         file_name = file.file_name
         log_msg = await broadcast.forward(chat_id=Var.BIN_CHANNEL)
-        stream_link = "https://{}/{}".format(Var.FQDN, log_msg.message_id) + '/' +quote_plus(file_name) if Var.ON_HEROKU or Var.NO_PORT else \
-            "http://{}:{}/{}".format(Var.FQDN,
-                                    Var.PORT,
-                                    log_msg.message_id) + '/' +quote_plus(file_name)
+        stream_link = Var.URL + str(log_msg.message_id) + '/' +quote_plus(file_name) if file_name else "
+            
+                                   
+                                    
         await log_msg.reply_text(
             text=f"**Cʜᴀɴɴᴇʟ Nᴀᴍᴇ:** `{broadcast.chat.title}`\n**Cʜᴀɴɴᴇʟ ID:** `{broadcast.chat.id}`\n**Rᴇǫᴜᴇsᴛ ᴜʀʟ:** {stream_link}",
             # text=f"**Cʜᴀɴɴᴇʟ Nᴀᴍᴇ:** `{broadcast.chat.title}`\n**Cʜᴀɴɴᴇʟ ID:** `{broadcast.chat.id}`\n**Rᴇǫᴜᴇsᴛ ᴜʀʟ:** https://t.me/FxStreamBot?start=AvishkarPatil_{str(log_msg.message_id)}",
