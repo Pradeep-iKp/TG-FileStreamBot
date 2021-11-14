@@ -25,22 +25,6 @@ def detect_type(m: Message):
         return
    
 
-@StreamBot.on_message(filters.private & (filters.document | filters.video | filters.audio), group=4)
-async def media_receive_handler(_, m: Message):
-    file = detect_type(m)
-    file_name = ''
-    if file:
-        file_name = file.file_name
-    log_msg = await m.forward(chat_id=Var.BIN_CHANNEL)
-    stream_link = Var.URL + str(log_msg.message_id) + '/' +quote_plus(file_name) if file_name else ''
-    await m.reply_text(
-        text="""
-        **--Here Is Your Link!--**
-        📍 **--Note--** : This is Permanent link, not will Expire !
-        🔗 **--Click to Copy Url--** :""""`{}`".format(stream_link),
-        quote=True,
-        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('Download', url=stream_link)]])
-    )
     
 @StreamBot.on_message(filters.private & (filters.document | filters.video | filters.audio) & ~filters.edited, group=4)
 async def private_receive_handler(c: Client, m: Message):
@@ -80,10 +64,10 @@ async def private_receive_handler(c: Client, m: Message):
             return
     try:
         log_msg = await m.forward(chat_id=Var.BIN_CHANNEL)
-        stream_link = "https://{}/{}".format(Var.FQDN, log_msg.message_id) if Var.ON_HEROKU or Var.NO_PORT else \
+        stream_link = "https://{}/{}".format(Var.FQDN, log_msg.message_id) + '/' +file_name if Var.ON_HEROKU or Var.NO_PORT else \
             "http://{}:{}/{}".format(Var.FQDN,
                                     Var.PORT,
-                                    log_msg.message_id)
+                                    log_msg.message_id) + '/' +file_name
         file_size = None
         if m.video:
             file_size = f"{humanbytes(m.video.file_size)}"
@@ -129,10 +113,10 @@ async def channel_receive_handler(bot, broadcast):
         return
     try:
         log_msg = await broadcast.forward(chat_id=Var.BIN_CHANNEL)
-        stream_link = "https://{}/{}".format(Var.FQDN, log_msg.message_id) if Var.ON_HEROKU or Var.NO_PORT else \
+        stream_link = "https://{}/{}".format(Var.FQDN, log_msg.message_id) + '/' +file_name if Var.ON_HEROKU or Var.NO_PORT else \
             "http://{}:{}/{}".format(Var.FQDN,
                                     Var.PORT,
-                                    log_msg.message_id)
+                                    log_msg.message_id) + '/' +file_name
         await log_msg.reply_text(
             text=f"**Cʜᴀɴɴᴇʟ Nᴀᴍᴇ:** `{broadcast.chat.title}`\n**Cʜᴀɴɴᴇʟ ID:** `{broadcast.chat.id}`\n**Rᴇǫᴜᴇsᴛ ᴜʀʟ:** {stream_link}",
             # text=f"**Cʜᴀɴɴᴇʟ Nᴀᴍᴇ:** `{broadcast.chat.title}`\n**Cʜᴀɴɴᴇʟ ID:** `{broadcast.chat.id}`\n**Rᴇǫᴜᴇsᴛ ᴜʀʟ:** https://t.me/FxStreamBot?start=AvishkarPatil_{str(log_msg.message_id)}",
