@@ -1,4 +1,4 @@
-# (c) @AbirHasan2005
+# (c) @AbirHasan2005 @HKrrish
 
 import asyncio
 import traceback
