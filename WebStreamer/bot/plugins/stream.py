@@ -87,10 +87,10 @@ async def private_receive_handler(c: Client, m: Message):
             file_name = f"{m.audio.file_name}"
 
         msg_text ="""
-<b><u>Here Is Your Link !</u></b>\n
+<b><u>• Here Is Your Link ! •</u></b>\n
 <b>📂 File Name :</b> <code>{}</code>
 <b>📦 File Size :</b> <code>{}</code>\n
-<b>🔗 Click to Copy :</b> <i>{}</i>\n
+<b>🔗 Click to Copy :</code> <i>{}</code>\n
 <b>📍 <u>Nᴏᴛᴇ</u> : This is Permanent Link, will Not Expire</b>\n
 <b> ~ @HKrrish ~ </b>"""
 
