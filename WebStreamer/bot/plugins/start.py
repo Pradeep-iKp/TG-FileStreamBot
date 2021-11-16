@@ -23,49 +23,62 @@ async def start(_, m: Message):
                   ))
     
 START_TEXT = """
-<i>👋 Hᴇʏ,</i>{}\n
-<i>I'ᴍ Tᴇʟᴇɢʀᴀᴍ Fɪʟᴇs Sᴛʀᴇᴀᴍɪɴɢ Bᴏᴛ ᴀs ᴡᴇʟʟ Dɪʀᴇᴄᴛ Lɪɴᴋs Gᴇɴᴇʀᴀᴛᴇ</i>\n
-<i>Cʟɪᴄᴋ ᴏɴ Hᴇʟᴘ ᴛᴏ ɢᴇᴛ ᴍᴏʀᴇ ɪɴғᴏʀᴍᴀᴛɪᴏɴ</i>\n
-<i><u>𝗪𝗔𝗥𝗡𝗜𝗡𝗚 🚸</u></i>
-<b>🔞 Pʀᴏɴ ᴄᴏɴᴛᴇɴᴛꜱ ʟᴇᴀᴅꜱ ᴛᴏ ᴘᴇʀᴍᴀɴᴇɴᴛ ʙᴀɴ ʏᴏᴜ.</b>\n\n
-<i><b>🍃 Bᴏᴛ Mᴀɪɴᴛᴀɪɴᴇᴅ Bʏ :</b>@AvishkarPatil</i>"""
+Hey! {}, 👋\n
+<b>💡 <u>I'm Telegram files Stream or Direct Download link Generator Bot! 🤖
+
+<code>Send me file to get an Instant Permanent Stream link.</code>
+
+➠ Check /help
+
+<| @HKrrish 👨‍💻
+.."""
 
 HELP_TEXT = """
-<i>- Sᴇɴᴅ ᴍᴇ ᴀɴʏ ꜰɪʟᴇ (ᴏʀ) ᴍᴇᴅɪᴀ ꜰʀᴏᴍ ᴛᴇʟᴇɢʀᴀᴍ.</i>
-<i>- I ᴡɪʟʟ ᴘʀᴏᴠɪᴅᴇ ᴇxᴛᴇʀɴᴀʟ ᴅɪʀᴇᴄᴛ ᴅᴏᴡɴʟᴏᴀᴅ ʟɪɴᴋ !.</i>
-<i>- Aᴅᴅ Mᴇ ɪɴ ʏᴏᴜʀ Cʜᴀɴɴᴇʟ Fᴏʀ Dɪʀᴇᴄᴛ Dᴏᴡɴʟᴏᴀᴅ Lɪɴᴋs Bᴜᴛᴛᴏɴ</i>
-<i>- Tʜɪs Pᴇʀᴍᴇᴀɴᴛ Lɪɴᴋ Wɪᴛʜ Fᴀsᴛᴇsᴛ Sᴘᴇᴇᴅ</i>\n
-<u>🔸 𝗪𝗔𝗥𝗡𝗜𝗡𝗚 🚸</u>\n
-<b>🔞 Pʀᴏɴ ᴄᴏɴᴛᴇɴᴛꜱ ʟᴇᴀᴅꜱ ᴛᴏ ᴘᴇʀᴍᴀɴᴇɴᴛ ʙᴀɴ ʏᴏᴜ.</b>\n
-<i>Cᴏɴᴛᴀᴄᴛ ᴅᴇᴠᴇʟᴏᴘᴇʀ (ᴏʀ) ʀᴇᴘᴏʀᴛ ʙᴜɢꜱ</i> <b>: <a href='https://t.me/Avishkarpatil'>[ ᴄʟɪᴄᴋ ʜᴇʀᴇ ]</a></b>"""
+Hello {},
 
-ABOUT_TEXT = """
-<b>⚜ Mʏ ɴᴀᴍᴇ : FileStreamX</b>\n
-<b>🔸Vᴇʀꜱɪᴏɴ : <a href='https://telegram.me/AvishkarPatil'>3.0.1</a></b>\n
-<b>🔹Sᴏᴜʀᴄᴇ : <a href='https://github.com/avipatilpro/FileStreamBot'>Cʟɪᴄᴋ Hᴇʀᴇ</a></b>\n
-<b>🔸GitHub : <a href='https://GitHub.com/avipatilpro'>Fᴏʟʟᴏᴡ</a></b>\n
-<b>🔹Dᴇᴠᴇʟᴏᴘᴇʀ : <a href='https://telegram.me/Avishkarpatil'>Aᴠɪsʜᴋᴀʀ Pᴀᴛɪʟ</a></b>\n
-<b>🔸Lᴀꜱᴛ ᴜᴘᴅᴀᴛᴇᴅ : <a href='https://telegram.me/AvishkarPatil'>[ 11-ᴊᴜʟʏ-21 ] 04:35 PM</a></b>"""
+❓<b><u>Help Menu</u></b> 
+
+★ Just send any file, i'll give you permanent download link with nice speed. 
+
+📍<b><u>Note</u></b> :
+
+In Telegram sometimes files have no name, so first check & Rename (@RenameBot) then send here.
+
+• Do one by one - Don't Spam
+• Don't send adults files.
+
+🎈<b><u>Channel Support</u></b>
+
+Make me admin in your channel & i'll add download button in every file post.
+
+~ @HKrrish 👨‍💻
+"""
+
+ABOUT_TEXT = """I'm Telegram files to <a herf='https://t.me/Tgfiletoweb_Bot'> stream/web bot </a> written in <a href='https://python.org'> python3 </a> with <a href='https://pyrogram.org'> pyrogram </a> framework. 
+
+This Bot is Made by <a href='https://t.me/HKrrish'> HKrrish </a> 🧑‍💻
+
+<b>Thank you :)</b>"""
 
 START_BUTTONS = InlineKeyboardMarkup(
         [[
-        InlineKeyboardButton('Hᴇʟᴘ', callback_data='help'),
-        InlineKeyboardButton('Aʙᴏᴜᴛ', callback_data='about'),
-        InlineKeyboardButton('Cʟᴏsᴇ', callback_data='close')
+        InlineKeyboardButton('Help 💡', callback_data='help'),
+        InlineKeyboardButton('Bots 🤖', url='https://t.me/HKrrish/10'),
+        InlineKeyboardButton('Close ✖', callback_data='close')
         ]]
     )
 HELP_BUTTONS = InlineKeyboardMarkup(
         [[
-        InlineKeyboardButton('Hᴏᴍᴇ', callback_data='home'),
-        InlineKeyboardButton('Aʙᴏᴜᴛ', callback_data='about'),
-        InlineKeyboardButton('Cʟᴏsᴇ', callback_data='close')
+        InlineKeyboardButton('Home 🏘', callback_data='home'),
+        InlineKeyboardButton('About 📕', callback_data='about'),
+        InlineKeyboardButton('Close ✖', callback_data='close')
         ]]
     )
 ABOUT_BUTTONS = InlineKeyboardMarkup(
         [[
-        InlineKeyboardButton('Hᴏᴍᴇ', callback_data='home'),
-        InlineKeyboardButton('Hᴇʟᴘ', callback_data='help'),
-        InlineKeyboardButton('Cʟᴏsᴇ', callback_data='close')
+        InlineKeyboardButton('Home 🏘', callback_data='home'),
+        InlineKeyboardButton('Help 💡', callback_data='help'),
+        InlineKeyboardButton('Close ✖', callback_data='close')
         ]]
     )
 
@@ -200,7 +213,9 @@ async def start(b, m):
 <b><u>Here Is Your Link !</u></b>\n
 <b>📂 File ɴame :</b> <code>{}</code>
 <b>📦 File ꜱize :</b> <code>{}</code>\n
+———
 <b>🔗 Click to Copy :</b> <code>{}</code>\n
+———
 <b>📍 <u>Note</u> :</b> This is Permanent Link, will not Expire\n
 🧑‍💻 @HKkrish\n...
 """
@@ -255,8 +270,8 @@ async def help_handler(bot, message):
         except Exception:
             await bot.send_message(
                 chat_id=message.chat.id,
-                text="**Something ᴡent Wrong, Contact Us** - @iDeepBot.",
-                parse_mode="markdown",
+                text=HELP_TEXT,
+                parse_mode="HTML",
                 disable_web_page_preview=True)
             return
     await message.reply_text(
