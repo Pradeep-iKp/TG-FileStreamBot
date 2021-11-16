@@ -269,7 +269,7 @@ async def help_handler(bot, message):
             await bot.send_message(
                 chat_id=message.chat.id,
                 text=HELP_TEXT,
-                parse_mode="markdown",
+                parse_mode="HTML",
                 disable_web_page_preview=True)
             return
     await message.reply_text(
