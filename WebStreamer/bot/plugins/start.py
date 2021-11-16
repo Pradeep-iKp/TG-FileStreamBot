@@ -24,7 +24,7 @@ async def start(_, m: Message):
     
 START_TEXT = """
 Hey! {}, 👋\n
-<b>💡 <u>I'm Telegram files Stream or Direct Download link Generator Bot! 🤖
+<b>💡 <u>I'm Telegram files Stream or Direct Download link Generator Bot!</b>🤖
 
 <code>Send me file to get an Instant Permanent Stream link.</code>
 
@@ -54,16 +54,16 @@ Make me admin in your channel & i'll add download button in every file post.
 ~ @HKrrish 👨‍💻
 """
 
-ABOUT_TEXT = """I'm Telegram files to <a herf='https://t.me/Tgfiletoweb_Bot'> stream/web bot </a> written in <a href='https://python.org'> python3 </a> with <a href='https://pyrogram.org'> pyrogram </a> framework. 
+ABOUT_TEXT = """I'm Telegram files to <a herf='https://t.me/Tgfiletoweb_Bot'>stream/web bot</a> written in <a href='https://python.org'>python3</a> with <a href='https://pyrogram.org'>pyrogram</a> framework. 
 
-This Bot is Made by <a href='https://t.me/HKrrish'> HKrrish </a> 🧑‍💻
+This Bot is Made by <a href='https://t.me/HKrrish'>HKrrish</a> 🧑‍💻
 
 <b>Thank you :)</b>"""
 
 START_BUTTONS = InlineKeyboardMarkup(
         [[
         InlineKeyboardButton('Help 💡', callback_data='help'),
-        InlineKeyboardButton('Bots 🤖', url='https://t.me/HKrrish/10'),
+        InlineKeyboardButton('Bots 🤖', url=f"https://t.me/HKrrish/10"),
         InlineKeyboardButton('Close ✖', callback_data='close')
         ]]
     )
