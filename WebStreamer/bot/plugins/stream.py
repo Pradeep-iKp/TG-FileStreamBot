@@ -90,7 +90,9 @@ async def private_receive_handler(c: Client, m: Message):
 <b><u>• Here Is Your Link ! •</u></b>\n
 <b>📂 <u>File Name</u> :</b> <code>{}</code>
 <b>📦 <u>File Size</u> :</b> <code>{}</code>\n
+———
 <b>🔗 <u>Click to Copy</u> :</b> <code>{}</code>\n
+———
 <b>📍 <u>Nᴏᴛᴇ</u> :</b> This is Permanent Link, will Not Expire\n
 <b> ~ @HKrrish ~ </b>"""
 
