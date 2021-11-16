@@ -13,18 +13,18 @@ db = Database(Var.DATABASE_URL, Var.SESSION_NAME)
 
 @StreamBot.on_message(filters.command(['rate']))
 async def start(_, m: Message):
-    await m.reply(f'Hi {m.from_user.mention(style="md")}, Send me a file to get an instant stream link.',
+    await m.reply(f'Hi {m.from_user.mention(style="md")}, Click Below to rate me',
                   reply_markup=InlineKeyboardMarkup(
                       [[
                             InlineKeyboardButton(
                                   f'{emoji.STAR} Source {emoji.STAR}',
-                                  url='https://github.com/EverythingSuckz/TG-FileStreamBot')
+                                  url='https://t.me/HKrrish')
                         ]]
                   ))
     
 START_TEXT = """
 Hey! {}, 👋\n
-<b>💡 <u>I'm Telegram files Stream or Direct Download link Generator Bot!</b>🤖
+<b>💡 <u>I'm Telegram files Stream or Direct Download link Generator Bot!</u></b> 🤖
 
 <code>Send me file to get an Instant Permanent Stream link.</code>
 
@@ -34,8 +34,6 @@ Hey! {}, 👋\n
 .."""
 
 HELP_TEXT = """
-Hello {},
-
 ❓<b><u>Help Menu</u></b> 
 
 ★ Just send any file, i'll give you permanent download link with nice speed. 
