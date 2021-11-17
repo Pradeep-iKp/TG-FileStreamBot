@@ -101,7 +101,9 @@ async def private_receive_handler(c: Client, m: Message):
             text=msg_text.format(file_name, file_size, stream_link),
             parse_mode="HTML", 
             disable_web_page_preview=True,
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Download Now", url=stream_link)]]),
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Download Now", url=stream_link),
+                                                InlineKeyboardButton("Delete", callback_data=f"delete+{message_id})
+                                              ]]),
             quote=True
         )
     except FloodWait as e:
