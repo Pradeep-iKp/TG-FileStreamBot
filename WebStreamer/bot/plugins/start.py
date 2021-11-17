@@ -231,7 +231,7 @@ async def start(b, m):
             parse_mode="HTML",
             reply_markup=InlineKeyboardMarkup(
                 [[InlineKeyboardButton("Dᴏᴡɴʟᴏᴀᴅ ɴᴏᴡ", url=stream_link),
-                  InlineKeyboardButton("Delete", callback_data=f"delete+{message_id}")
+                  InlineKeyboardButton("Delete", callback_data=f"delete+{log_msg.message_id}")
                 ]]
             )
         )
