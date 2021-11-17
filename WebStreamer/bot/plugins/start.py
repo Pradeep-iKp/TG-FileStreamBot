@@ -108,7 +108,7 @@ async def delete_cb(c, m):
     await m.answer()
     cmd, msg_id = m.data.split("+")
     chat_id = m.from_user.id if not Var.BIN_CHANNEL else int(Var.BIN_CHANNEL)
-    message = await c.get_messages(chat_id, int(msg_id))
+    message = await c.get_msg.message_id(Var.BIN_CHANNEL, int(log_msg.message_id))
     await message.delete()
     await m.message.edit("Deleted files successfully --> 🗑")
 
