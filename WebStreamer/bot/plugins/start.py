@@ -11,14 +11,14 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
 from pyrogram.errors import UserNotParticipant
 db = Database(Var.DATABASE_URL, Var.SESSION_NAME)
 
-@StreamBot.on_message(filters.command(['rate']))
+@StreamBot.on_message(filters.command(['review']))
 async def start(_, m: Message):
-    await m.reply(f'Hi {m.from_user.mention(style="md")}, Click Below to rate me',
+    await m.reply(f'Hi {m.from_user.mention(style="md")}, ⭐ **--Feedback--** ⭐\n\nIf you like our service please give your feedback! We are waiting for your feedback. It will motivate us! 🤗',
                   reply_markup=InlineKeyboardMarkup(
                       [[
                             InlineKeyboardButton(
-                                  f'{emoji.STAR} Source {emoji.STAR}',
-                                  url='https://t.me/HKrrish')
+                                  f'{emoji.STAR} Comment Here {emoji.STAR}',
+                                  url='https://bit.ly/3Fk9ZrS')
                         ]]
                   ))
     
