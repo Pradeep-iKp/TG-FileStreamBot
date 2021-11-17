@@ -103,15 +103,6 @@ async def cb_data(bot, update):
     else:
         await update.message.delete()
         
-@StreamBot.on_callback_query(filters.regex('^delete'))
-async def delete_cb(c, m):
-    await m.answer()
-    cmd, msg_id = m.data.split("+")
-    chat_id = m.from_user.id if not Var.BIN_CHANNEL else int(Var.BIN_CHANNEL)
-    message = await c.get_msg.message_id(Var.BIN_CHANNEL, int(log_msg.message_id))
-    await message.delete()
-    await m.message.edit("Deleted files successfully --> 🗑")
-
 @StreamBot.on_message(filters.command('start') & filters.private & ~filters.edited)
 async def start(b, m):
     if not await db.is_user_exist(m.from_user.id):
@@ -229,11 +220,7 @@ async def start(b, m):
         await m.reply_text(
             text=msg_text.format(file_name, file_size, stream_link),
             parse_mode="HTML",
-            reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton("Dᴏᴡɴʟᴏᴀᴅ ɴᴏᴡ", url=stream_link),
-                  InlineKeyboardButton("Delete", callback_data=f"delete+{log_msg.message_id}")
-                ]]
-            )
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Dᴏᴡɴʟᴏᴀᴅ ɴᴏᴡ", url=stream_link)]])
         )
 
 
