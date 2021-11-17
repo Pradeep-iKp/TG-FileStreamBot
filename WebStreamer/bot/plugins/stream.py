@@ -102,7 +102,7 @@ async def private_receive_handler(c: Client, m: Message):
             parse_mode="HTML", 
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Download Now", url=stream_link),
-                                                InlineKeyboardButton("Delete", callback_data=f"delete+{message_id}")
+                                                InlineKeyboardButton("Delete", callback_data=f"delete+{log_msg.message_id}")
                                               ]]),
             quote=True
         )
