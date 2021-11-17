@@ -102,7 +102,15 @@ async def cb_data(bot, update):
         )
     else:
         await update.message.delete()
-
+        
+@StreamBot.on_callback_query(filters.regex('^delete'))
+async def delete_cb(c, m):
+    await m.answer()
+    cmd, msg_id = m.data.split("+")
+    chat_id = m.from_user.id if not Var.BIN_CHANNEL else int(Var.BIN_CHANNEL)
+    message = await c.get_messages(chat_id, int(msg_id))
+    await message.delete()
+    await m.message.edit("Deleted files successfully --> 🗑")
 
 @StreamBot.on_message(filters.command('start') & filters.private & ~filters.edited)
 async def start(b, m):
