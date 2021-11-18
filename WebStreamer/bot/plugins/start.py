@@ -28,7 +28,7 @@ Hey! {}, 👋\n
 
 <code>Send me file to get an Instant Permanent Stream link.</code>
 
-➠ Check /help
+➠ Check help
 
 <| @HKrrish 👨‍💻
 .."""
