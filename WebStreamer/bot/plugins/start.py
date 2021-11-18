@@ -213,7 +213,7 @@ async def start(b, m):
 ———
 <b>🔗 Click to Copy :</b> <code>{}</code>\n
 ———
-<b>📍 <u>Note</u> :</b> This is Permanent Link, will not Expire\n
+📍This is Permanent Link.\n
 🧑‍💻 @HKkrish\n...
 """
 
